@@ -9,14 +9,14 @@ import noReadedSvg from "../../asset/img/noreaded.svg"
 
 const Message = ({avatar,user,text,date,isMe,isReaded,attachments,isTyping}) => {
     return (
-      <div className={classNames("message",{"message--isme" : isMe, "message--is-typing" : isTyping})}>
+      <div className={classNames("message",{"message--isme" : isMe, "message--is-typing" : isTyping,"message--image":attachments && attachments.length === 1})}>
           <div className="message__content">
-            {isMe && isReaded ? 
+            {isMe && (isReaded ? 
             (<img className="message__icon-readed" src={readedSvg} alt="Readed icon" />
             ) : (
                 <img className="message__icon-readed message__icon-readed--no" src={noReadedSvg} alt="no Readed icon" />  
             )
-        }
+        )}
           <div className="message__avatar">
              <img src={avatar} alt={`Avatar ${user}`}/>
           </div>
@@ -29,7 +29,8 @@ const Message = ({avatar,user,text,date,isMe,isReaded,attachments,isTyping}) => 
               <span/>
 
             </div>}
-          </div>}
+          </div>
+          }
           <div className="message__attachments">
               {attachments && attachments.map(item =>(
             <div className="message__attachments-item">
