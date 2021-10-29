@@ -1,14 +1,15 @@
 import React from 'react'
 import { Message } from '../../components'
-
+import {DialogItems} from '../../components'  
 
 
 import '../Home/Home.scss'
 const Home = () => {
-   
     return (
         <section className="home">
-          {/* <Dialogs items={[
+         <DialogItems/>
+          {/* <Dialogs 
+          items={[
             {
               user:{
                 fullname: 'Фёдор Достоевский',
